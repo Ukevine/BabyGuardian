@@ -43,7 +43,7 @@ const steps = [
 export default function SolutionPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero solution-hero">
         <h1>Complete Baby Monitoring <span className="text-primary">Solution</span></h1>
         <p>A comprehensive system combining live monitoring, health tracking, and integrated safety features to give parents complete peace of mind.</p>
       </section>

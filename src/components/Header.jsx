@@ -16,8 +16,7 @@ export default function Header() {
     <header className="header">
       <div className="header-inner">
         <NavLink to="/" className="logo">
-          <span className="logo-baby">Baby</span>
-          <span className="logo-guardian">Guardian</span>
+          <img src="/images/logo.png" alt="BabyGuard" className="logo-img" />
         </NavLink>
         <button
           className="nav-toggle"
