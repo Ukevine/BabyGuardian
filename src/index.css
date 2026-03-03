@@ -39,6 +39,21 @@ body {
   background: var(--color-white);
 }
 
+/* Soft pastel noise / blobs across the page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 200, 210, 0.22) 0, transparent 55%),
+    radial-gradient(circle at 82% 10%, rgba(147, 197, 253, 0.22) 0, transparent 55%),
+    radial-gradient(circle at 20% 82%, rgba(254, 202, 202, 0.18) 0, transparent 55%);
+  mix-blend-mode: soft-light;
+  opacity: 0.8;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -296,6 +311,7 @@ img {
   position: relative;
   z-index: 2;
   object-fit: contain;
+  animation: floatSoft 9s ease-in-out infinite;
 }
 
 .data-cards-container {
@@ -320,6 +336,7 @@ img {
   align-items: center;
   gap: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.04);
+  animation: floatSoft 10s ease-in-out infinite;
 }
 
 .data-card .card-label {
@@ -488,6 +505,18 @@ section {
   color: var(--color-text-light);
 }
 
+.section-header.values-header {
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-primary);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-header.values-header h2 {
+  margin-bottom: 0;
+}
+
 /* Features grid */
 .features-grid {
   display: grid;
@@ -570,6 +599,50 @@ section {
   font-size: 0.75rem;
 }
 
+/* Simple entrance / float animations */
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.blog-hero,
+.newsletter-inner,
+.contact-grid {
+  animation: fadeUpSoft 0.8s ease-out both;
+}
+
+.feature-card,
+.article-card,
+.core-feature-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover,
+.article-card:hover,
+.core-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
 /* Stats */
 /* Why Choose Us */
 .why-choose-us {
@@ -626,12 +699,7 @@ section {
   flex-direction: column;
   gap: 0.5rem;
   padding-bottom: 2rem;
-  border-bottom: 3px solid var(--color-primary);
   position: relative;
-}
-
-.stat-item:last-child {
-  border-bottom: none;
 }
 
 .stat-number {
@@ -653,8 +721,6 @@ section {
   }
   
   .stat-item {
-    border-bottom: none;
-    border-right: 3px solid var(--color-primary);
     padding-right: 1.5rem;
     padding-bottom: 0;
   }
@@ -677,10 +743,9 @@ section {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 1px;
+  width: 2px;
   height: 60%;
   background: var(--color-primary);
-  opacity: 0.3;
 }
 
 .stat-number {

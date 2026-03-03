@@ -48,9 +48,6 @@ export default function ContactsPage() {
                 <IconMail /> mhs@babyguard.com
               </span>
             </div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--color-text-light)' }}>
-              <strong>Support hours:</strong> Mon–Fri, 9am–6pm (GMT+2)
-            </div>
           </div>
 
           <form

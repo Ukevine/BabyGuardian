@@ -73,7 +73,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-copyright">
-        © 2024 BabyGuard • All Rights Reserved
+        © 2026 BabyGuard • All Rights Reserved
       </div>
     </footer>
   )
