@@ -545,6 +545,31 @@ section {
   line-height: 1.6;
 }
 
+/* Blog meta row - match design */
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+  margin-top: 0.75rem;
+}
+
+.article-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meta-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.blog-articles-section .read-more {
+  font-size: 0.75rem;
+}
+
 /* Stats */
 /* Why Choose Us */
 .why-choose-us {
@@ -1464,34 +1489,39 @@ section {
   margin-bottom: 0.5rem;
 }
 
-/* Newsletter */
+/* Newsletter with blurred photo background (photo.png) */
 .newsletter-section {
-  background: #ffffff;
-  color: var(--color-text);
+  position: relative;
   padding: var(--space-section-y) var(--space-page-x);
   text-align: center;
-  position: relative;
+  color: #ffffff;
+  overflow: hidden;
 }
 
 .newsletter-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: transparent;
-  opacity: 0;
+  background:
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
+    url('/images/photo.png') center/cover no-repeat;
+  filter: blur(4px);
+  opacity: 0.95;
 }
 
 .newsletter-inner {
   position: relative;
   z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .newsletter-section h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .newsletter-section p {
-  opacity: 0.95;
+  opacity: 0.9;
   margin-bottom: 1.5rem;
 }
 
@@ -1500,24 +1530,32 @@ section {
   gap: 0.5rem;
   max-width: 450px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .newsletter-form input {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(15, 23, 42, 0.3);
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .newsletter-form button {
-  padding: 0.75rem 1.5rem;
-  background: var(--color-primary);
+  padding: 0.75rem 1.75rem;
+  background: #4CA0F3;
   color: white;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 10px 25px rgba(76, 160, 243, 0.35);
 }
 
 /* Contact grid */
